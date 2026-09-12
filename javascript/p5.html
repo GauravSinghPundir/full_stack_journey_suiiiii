@@ -1,0 +1,11 @@
+<h2>gym</h2>
+<h2>work</h2>
+
+<script>
+    let ctr=0;
+    function callback(){
+        document.querySelectorAll("h2")[1].innerHTML=ctr;
+        ctr=ctr+1;
+    }
+    setInterval(callback,1000);
+</script>

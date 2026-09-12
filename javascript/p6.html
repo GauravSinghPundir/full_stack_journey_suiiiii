@@ -1,0 +1,123 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+</head>
+<body style="background-color: black; color: white;">
+
+    <div>
+        <input placeholder="enter the todo" type="text">
+        <button onclick="addTODO()">ADD</button>
+    </div>
+
+    <script>
+        let ctr = 1;
+
+        function addTODO() {
+            let value1 = document.querySelector("input").value;
+            componentTODO(value1);
+            ctr++;
+        }
+
+        function componentTODO(value2) {
+
+            let divel = document.createElement("div");
+
+            let divsub = document.createElement("div");
+            divsub.innerHTML = value2;
+            divsub.setAttribute("id", ctr);
+
+            let buttel = document.createElement("button");
+            buttel.innerHTML = "Delete";
+
+            divel.appendChild(divsub);
+            divel.appendChild(buttel);
+
+            document.body.appendChild(divel);
+        }
+    </script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- state derived frontend ->> basically the concept is that whenever its about large application, we cannot just do the dom manipilation manually everytime for everything , like consider a linkedin it at home u see that for post , fiest of all ther is a concept of state- it is the thing which is changed or changeable , componennt i sthe main structure and render is basically appling that ste to the component. so for a frontend ui/ux the only thing they need to vhange ids the state and wresthwhile is handled by render and dom is manipulaeted in render and  compnent and the se things are habndeled by the backend guy and this the same thing taht raectbas a framework provides. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <input type="text" placeholder="add to do">
+    <button onclick="addtodo()">add</button>
+    <button onclick="lastdel()">lastdel</button>
+    <button onclick="firstdel()">firstdel</button>
+    <div id="todo-container"></div>
+    </div>
+
+
+
+
+
+    <script>
+        let todos=[];
+        function addtodo(){
+            todos.push({"title":document.querySelector("input").value});
+            render();
+        }
+        function lastdel(){
+            todos.splice(todos.length-1 , 1);
+            render();
+        }
+        function firstdel(){
+            todos.splice(0,1);
+            render();
+        }
+        let ctr=0;
+        function addtodocomponent(todo){
+            let nelem=document.createElement("div");
+            let inele=document.createElement("div");
+            let buttele=document.createElement("button");
+            buttele.innerHTML="Delete";
+            buttele.setAttribute("id",ctr);
+            buttele.onclick=function(){
+                // let id=this.getAttribute("id");
+                // todos.splice(id,1);
+                // render();
+                // let element=document.getElementById(("id"));
+                // if(element){
+                //     element.parentNode.removeChild(element);
+                // }
+                
+
+            }
+            inele.innerHTML=todo.title;
+            nelem.appendChild(inele);
+            nelem.appendChild(buttele);
+            return nelem;
+            ctr++;
+
+        }
+
+        function render(){
+            document.querySelector("#todo-container").innerHTML="";
+            for(let i=0;i<todos.length;i++){
+                let element=addtodocomponent(todos[i],i);
+                document.querySelector("#todo-container").appendChild(element);
+            }
+
+        }
+    </script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+
+.navbar{
+    background-color: #0D1117;
+    border-bottom: 1px solid #9ba3b43b;
+    display :flex;
+    justify-content: space-between;
+    
+    padding: 20px 100px;
+}
+#item{
+    color:#9BA3B4;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}

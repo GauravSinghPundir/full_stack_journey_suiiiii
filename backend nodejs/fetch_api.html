@@ -1,0 +1,50 @@
+<!--headers:- they are extra peice of informaytion sent to the and between the client and server like user aiuthentication, content type , referral.
+//a referral:- is basically trhe urlfrom wherre the request is coming
+
+
+basically we go pon linked in as soon as we open the home tab what happens is that we can see bunch of posts getting rendered asnd a s we scrolls by more posts gets rendered in the backgrounfd withjout qe ecen getting or givong a request to di soi we just gove the first request that is to hit the www.linkedin.com and all other erequests are being done and responded back in the background .this sis done with the help of a browser given function fetch and the whole thing thast is responsible for all this comes under the fetch api. -->
+--!>
+<!-- <html>
+    <head>
+
+    </head>
+
+<body>
+  rides data
+  <div id="data1"></div>
+
+
+    
+    <script>
+        async function getPosts(){
+            const response=await fetch("http://localhost:3000/ride1?age=40");
+            const data= await response.json();
+            document.getElementById("data1").innerHTML=data.msg;
+        }
+        getPosts();
+    </script>
+        
+</body>
+</html> -->
+
+<!-- we have something synattically better than fetch i.e. axios and it is like the auxillary as we say that async await is synatic sugar for promises as under the hood they are promises only. -->
+
+<html>
+    <head>
+        <script src="https://unpkg.com/axios@1.10.0/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <div id="post1">
+
+        </div>
+
+        <script>
+            async function getposts(){
+                const response=await axios.get("http://localhost:3000/ride1?age=40");
+                document.getElementById("post1").innerHTML=response.data.msg;
+            }
+            getposts();
+        </script>
+    </body>
+</html>

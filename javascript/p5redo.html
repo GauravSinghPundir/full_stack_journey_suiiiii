@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic practice</title>
+</head>
+<body style="background-color: black; color: bisque;" id="hh">
+    <h1>TO DO LIST </h1>
+    <div id="todoparent">
+    <h3>gym</h3>
+    <input type="text" placeholder="update" id="update">
+    <button style="background-color: aquamarine;" onclick="upp()">update</button>
+    <div style="display: flex;">
+        <h3 id="todo-2">learning</h3>
+        <button style="height: 28px;  background-color: rgb(160, 25, 25);"onclick="todo(2)">delete</button>
+        <button onclick="redoooo()" style="background-color: blue;">update</button>
+    </div>
+
+        <h3 id="todo-3">toying</h3>
+        <button style="height: 28px; background-color: rgb(160, 25, 25);" onclick="todo(3)" >delete</button>
+    
+    <h3>freefire</h3>
+    <h3>fuck u</h3>
+
+    <div style="display: flex; ">
+        <input type="text" placeholder="add ur task" style="margin-right: 4px;" id="add">
+        <button onclick="addtodo()" style="background-color: blue;">Add TO_DO</button>
+
+    </div>
+    </div>
+
+
+    <script>
+
+        function addtodo(){
+            let c1=document.createElement("div");
+            c1.innerHTML=document.getElementById("add").value;
+            let parent=document.getElementById("todoparent");
+            parent.appendChild(c1);
+        }
+
+
+        function todo(index){
+            let element=document.getElementById("todo-"+index);
+            // element.parentNode.removeChild(element);
+            document.getElementById("todoparent").removeChild(element);
+        }
+
+
+        function upp(){
+            let c1=document.getElementById("update");
+            document.querySelector("h3").innerHTML=c1.value;
+        }
+
+
+
+        function redoooo(){
+                let ctr=0;
+        function update(){
+            document.querySelectorAll("h3")[1].innerHTML=ctr;
+            ctr=ctr+1;
+        
+        }
+        setInterval(update,1000);
+        }
+        
+
+    </script>
+
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex;">
+    <input type="text" placeholder="add todo">
+    <button onclick="addtodo()">ADD</button>
+    </div>
+
+<script>
+    function deletetodo(index){
+        let element=document.getElementById("todo-"+index);
+        element.parentNode.removeChild(element);
+    }
+
+    let ctr=1;
+    function addtodo(){
+
+        let element1=document.createElement("div");
+        element1.setAttribute("id","todo-"+ctr);
+        let value1=document.querySelector("input").value;
+        element1.innerHTML=("<div>"+value1+'</div><button onclick="deletetodo('+ctr+')">delete</button>');
+        document.querySelector("body").appendChild("element1");
+        ctr+=1;
+
+    }
+
+</script>
+
+
+</body>
+</html>
