@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkedin</title>
+</head>
+<body>
+    <!-- /////posts -->
+    <div class="posts" style="height: auto; width:250px; border: solid black 1px; border-radius: 8px;">
+        <h2 id="title" style="font-size: 14px;">
+        </h2>
+        <p id="body" style="font-size: 10px;">
+
+        </p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+    <script>
+        // const response=fetch("https://jsonplaceholder.typicode.com/posts/1");
+        // if(response){
+        //     let var1=response.parse();
+        //     document.getElementsByClassName("posts").setattributre("id",var1[0].id);
+        //     document.getElementById("title").innerHTML=var1[0].title;
+        //     document.getElementById("body").innerHtml=var1[0].body;
+
+        // }///// this could have been on;ly valid if the response was to execute and giv me the datya just as it executes , but remeber rtesponse rreturn a promise that if i get it i will do it so use it as a promise 
+        //////correct way:-
+        fetch("https://jsonplaceholder.typicode.com/posts/1").then(response => response.json() ).then(data =>
+            {
+                document.querySelector(".posts").setAttribute("id",data.id);
+                document.getElementById("title").innerHTML=data.title;
+                document.getElementById("body").innerHTML=data.body;
+            }
+        );
+    </script>
+</body>
+</html>
